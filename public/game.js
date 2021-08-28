@@ -116,10 +116,11 @@ socket.on("init-player", (data)=>{
         console.log(enemies)
     })
 
-    socket.on("init-pllayer-info", function (data){
+    socket.on("init-player-info", function (data){
         data.forEach( (p)=>{
             enemies.push(new Enemy(p.id, p.x,p.y, p.state))
         })
+        console.log(enemies)
     })
 
     function gameLoop(){

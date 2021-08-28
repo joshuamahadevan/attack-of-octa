@@ -13,6 +13,8 @@ var player_log=[]
 io.on("connect", (socket)=>{
     socket.emit("init-player", socket.id)
 
+    socket.emit("init-player-info", player_log)
+
     socket.on("new-player", function (data){
         console.log("new-player",data)
         socket.broadcast.emit("new-player", data)
@@ -20,7 +22,8 @@ io.on("connect", (socket)=>{
     })
 
     socket.on("move", function (data){
-        console.log("move",data)
         socket.broadcast.emit("move", data)
     })
+
+
 })
